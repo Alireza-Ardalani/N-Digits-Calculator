@@ -5,8 +5,8 @@
 public class Main {
 
     public static void main(String[] inputArgs) {
-        String a = "1000";
-        String b = "999";
+        String a = "-10";
+        String b = "99";
 
         if (true) {
             //check are they valid number or not!
@@ -15,7 +15,7 @@ public class Main {
         bigNumber A = new bigNumber(a);
         bigNumber B = new bigNumber(b);
 
-        System.out.println(operations.subtract(A, B));
+        System.out.println(operations.multiply(A, B));
 
     }
 
