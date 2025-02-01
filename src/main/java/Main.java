@@ -5,7 +5,7 @@
 public class Main {
 
     public static void main(String[] inputArgs) {
-        String a = "-10";
+        String a = "-1";
         String b = "99";
 
         if (true) {

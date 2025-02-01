@@ -118,15 +118,28 @@ public class operations {
 
         return number;
     }
-
     public static bigNumber multiply(bigNumber first, bigNumber second) {
+        bigNumber result = multiply1(first,second);
+        boolean sign = false;
+        if(first.getSign() == true & second.getSign() == false){
+            sign = true;
+        } else if (first.getSign() == false & second.getSign() == true){
+            sign = true;
+        }
+        else {
+             sign = false;
+        }
+        result.setSign(sign);
+        return result;
+    }
+    public static bigNumber multiply1(bigNumber first, bigNumber second) {
         node zero = new node(0);
         bigNumber counter = new bigNumber(zero);
         Boolean check = isGreater(first, second);
 
         node zero1 = new node(0);
         bigNumber result = new bigNumber(zero1);
-        ;
+
         if (check) {
 
             while (true) {
