@@ -5,8 +5,8 @@
 public class Main {
 
     public static void main(String[] inputArgs) {
-        String a = "-1";
-        String b = "99";
+        String a = "300001";
+        String b = "3000001";
 
         if (true) {
             //check are they valid number or not!

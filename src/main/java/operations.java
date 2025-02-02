@@ -161,6 +161,40 @@ public class operations {
         return result;
     }
 
+    public static bigNumber divide(bigNumber first, bigNumber second, boolean quotientFlag) {
+        boolean sign = false;
+        bigNumber result = null;
+        if(first.getSign() == true & second.getSign() == false){
+            sign = true;
+        } else if (first.getSign() == false & second.getSign() == true){
+            sign = true;
+        }
+        else {
+            sign = false;
+        }
+        result = divide1(first,second,quotientFlag);
+        if(quotientFlag){
+            result.setSign(sign);
+        }
+        return result;
+    }
+    public static bigNumber divide1(bigNumber first, bigNumber second, boolean quotientFlag) {
+        bigNumber quotient = new bigNumber("0");
+        bigNumber reminder =  null;
+        while (true){
+            if(isGreater(first,second) || isEqual(first,second)){
+                first = subtract1(first,second,false);
+                quotient = addOne(quotient);
+            } else {
+                break;
+            }
+        }
+        reminder  = first;
+        if(quotientFlag){
+          return quotient;
+        }
+        return reminder;
+    }
     public static bigNumber subtract(bigNumber first, bigNumber second) {
         bigNumber result = null;
         if (first.getSign() == false & second.getSign() == false) {
