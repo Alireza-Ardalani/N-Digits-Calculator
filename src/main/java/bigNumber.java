@@ -3,20 +3,20 @@ public class bigNumber {
     boolean sign = false;
 
     public bigNumber(String inputString) {
-        if(inputString.charAt(0) == '-'){
+        if (inputString.charAt(0) == '-') {
             inputString = inputString.substring(1);
             sign = true;
         } else if (inputString.charAt(0) == '+') {
             inputString = inputString.substring(1);
             sign = false;
-        }
-        else {
+        } else {
             sign = false;
         }
 
         this.lastNode = bigNumberCreator(leftZeroClearance(inputString));
 
     }
+
     public bigNumber(node inputNode) {
 
         this.lastNode = inputNode;
@@ -71,7 +71,7 @@ public class bigNumber {
                 node = node.getPrev();
             }
         }
-        if(this.sign){
+        if (this.sign) {
             number = "-" + number;
         }
         return number;
@@ -113,7 +113,8 @@ public class bigNumber {
     public void setSign(boolean sign) {
         this.sign = sign;
     }
-    public boolean getSign(){
+
+    public boolean getSign() {
         return this.sign;
     }
 }

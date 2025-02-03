@@ -28,7 +28,7 @@ public class operations {
     public static bigNumber addOne(bigNumber number) {
         node node = new node(1);
         bigNumber one = new bigNumber(node);
-        number = addition1(number, one,false);
+        number = addition1(number, one, false);
         return number;
     }
 
@@ -118,20 +118,21 @@ public class operations {
 
         return number;
     }
+
     public static bigNumber multiplication(bigNumber first, bigNumber second) {
-        bigNumber result = multiplication1(first,second);
+        bigNumber result = multiplication1(first, second);
         boolean sign = false;
-        if(first.getSign() == true & second.getSign() == false){
+        if (first.getSign() == true & second.getSign() == false) {
             sign = true;
-        } else if (first.getSign() == false & second.getSign() == true){
+        } else if (first.getSign() == false & second.getSign() == true) {
             sign = true;
-        }
-        else {
-             sign = false;
+        } else {
+            sign = false;
         }
         result.setSign(sign);
         return result;
     }
+
     public static bigNumber multiplication1(bigNumber first, bigNumber second) {
         node zero = new node(0);
         bigNumber counter = new bigNumber(zero);
@@ -143,7 +144,7 @@ public class operations {
                 if (isEqual(counter, second) || isEqual(counter, first)) {
                     break;
                 }
-                result = addition1(result, first,false);
+                result = addition1(result, first, false);
                 counter = addOne(counter);
             }
         } else {
@@ -151,7 +152,7 @@ public class operations {
                 if (isEqual(counter, second) || isEqual(counter, first)) {
                     break;
                 }
-                result = addition1(result, second,false);
+                result = addition1(result, second, false);
                 counter = addOne(counter);
             }
         }
@@ -161,38 +162,39 @@ public class operations {
     public static bigNumber division(bigNumber first, bigNumber second, boolean quotientFlag) {
         boolean sign = false;
         bigNumber result = null;
-        if(first.getSign() == true & second.getSign() == false){
+        if (first.getSign() == true & second.getSign() == false) {
             sign = true;
-        } else if (first.getSign() == false & second.getSign() == true){
+        } else if (first.getSign() == false & second.getSign() == true) {
             sign = true;
-        }
-        else {
+        } else {
             sign = false;
         }
-        result = division1(first,second,quotientFlag);
-        if(quotientFlag){
+        result = division1(first, second, quotientFlag);
+        if (quotientFlag) {
             result.setSign(sign);
         }
         return result;
     }
+
     public static bigNumber division1(bigNumber first, bigNumber second, boolean quotientFlag) {
         bigNumber quotient = new bigNumber("0");
-        bigNumber remain =  null;
-        while (true){
-            if(isGreater(first,second) || isEqual(first,second)){
-                first = subtraction1(first,second,false);
+        bigNumber remain = null;
+        while (true) {
+            if (isGreater(first, second) || isEqual(first, second)) {
+                first = subtraction1(first, second, false);
                 quotient = addOne(quotient);
             } else {
                 break;
             }
         }
-        remain  = first;
-        if(quotientFlag){
-          return quotient;
+        remain = first;
+        if (quotientFlag) {
+            return quotient;
         }
         return remain;
     }
-    public static bigNumber subtraction (bigNumber first, bigNumber second) {
+
+    public static bigNumber subtraction(bigNumber first, bigNumber second) {
         bigNumber result = null;
         if (first.getSign() == false & second.getSign() == false) {
             if ((isGreater(first, second)) || (isEqual(first, second))) {
@@ -217,7 +219,7 @@ public class operations {
         return result;
     }
 
-    public static bigNumber subtraction1 (bigNumber first, bigNumber second, boolean sign) {
+    public static bigNumber subtraction1(bigNumber first, bigNumber second, boolean sign) {
         // I consider that always first is bigger than
         boolean borrow = false;
         node firstNumber = first.getLastNode();
@@ -272,7 +274,7 @@ public class operations {
         }
         bigNumber number = new bigNumber(subtractLastNode);
         String removedLeftZero = number.toString();
-        bigNumber number1 =  new bigNumber(removedLeftZero);
+        bigNumber number1 = new bigNumber(removedLeftZero);
         number1.setSign(sign);
 
         return number1;
