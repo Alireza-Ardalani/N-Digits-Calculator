@@ -28,7 +28,7 @@ public class operations {
     public static bigNumber addOne(bigNumber number) {
         node node = new node(1);
         bigNumber one = new bigNumber(node);
-        number = add1(number, one,false);
+        number = addition1(number, one,false);
         return number;
     }
 
@@ -57,25 +57,25 @@ public class operations {
         }
     }
 
-    public static bigNumber add(bigNumber first, bigNumber second) {
+    public static bigNumber addition(bigNumber first, bigNumber second) {
         bigNumber result = null;
         if (first.getSign() == false & second.getSign() == false) {
-            result = add1(first, second, false);
+            result = addition1(first, second, false);
         } else if (first.getSign() == false & second.getSign() == true) {
             second.setSign(false);
-            result = subtract(first, second);
+            result = subtraction(first, second);
         } else if (first.getSign() == true & second.getSign() == false) {
             first.setSign(false);
-            result = subtract(second, first);
+            result = subtraction(second, first);
         } else {
-            result = add1(first, second, true);
+            result = addition1(first, second, true);
         }
 
         return result;
 
     }
 
-    public static bigNumber add1(bigNumber first, bigNumber second, boolean sign) {
+    public static bigNumber addition1(bigNumber first, bigNumber second, boolean sign) {
         int over = 0;
         node firstNumber = first.getLastNode();
         node secondNumber = second.getLastNode();
@@ -118,8 +118,8 @@ public class operations {
 
         return number;
     }
-    public static bigNumber multiply(bigNumber first, bigNumber second) {
-        bigNumber result = multiply1(first,second);
+    public static bigNumber multiplication(bigNumber first, bigNumber second) {
+        bigNumber result = multiplication1(first,second);
         boolean sign = false;
         if(first.getSign() == true & second.getSign() == false){
             sign = true;
@@ -132,21 +132,18 @@ public class operations {
         result.setSign(sign);
         return result;
     }
-    public static bigNumber multiply1(bigNumber first, bigNumber second) {
+    public static bigNumber multiplication1(bigNumber first, bigNumber second) {
         node zero = new node(0);
         bigNumber counter = new bigNumber(zero);
         Boolean check = isGreater(first, second);
-
         node zero1 = new node(0);
         bigNumber result = new bigNumber(zero1);
-
         if (check) {
-
             while (true) {
                 if (isEqual(counter, second) || isEqual(counter, first)) {
                     break;
                 }
-                result = add1(result, first,false);
+                result = addition1(result, first,false);
                 counter = addOne(counter);
             }
         } else {
@@ -154,14 +151,14 @@ public class operations {
                 if (isEqual(counter, second) || isEqual(counter, first)) {
                     break;
                 }
-                result = add1(result, second,false);
+                result = addition1(result, second,false);
                 counter = addOne(counter);
             }
         }
         return result;
     }
 
-    public static bigNumber divide(bigNumber first, bigNumber second, boolean quotientFlag) {
+    public static bigNumber division(bigNumber first, bigNumber second, boolean quotientFlag) {
         boolean sign = false;
         bigNumber result = null;
         if(first.getSign() == true & second.getSign() == false){
@@ -172,47 +169,47 @@ public class operations {
         else {
             sign = false;
         }
-        result = divide1(first,second,quotientFlag);
+        result = division1(first,second,quotientFlag);
         if(quotientFlag){
             result.setSign(sign);
         }
         return result;
     }
-    public static bigNumber divide1(bigNumber first, bigNumber second, boolean quotientFlag) {
+    public static bigNumber division1(bigNumber first, bigNumber second, boolean quotientFlag) {
         bigNumber quotient = new bigNumber("0");
-        bigNumber reminder =  null;
+        bigNumber remain =  null;
         while (true){
             if(isGreater(first,second) || isEqual(first,second)){
-                first = subtract1(first,second,false);
+                first = subtraction1(first,second,false);
                 quotient = addOne(quotient);
             } else {
                 break;
             }
         }
-        reminder  = first;
+        remain  = first;
         if(quotientFlag){
           return quotient;
         }
-        return reminder;
+        return remain;
     }
-    public static bigNumber subtract(bigNumber first, bigNumber second) {
+    public static bigNumber subtraction (bigNumber first, bigNumber second) {
         bigNumber result = null;
         if (first.getSign() == false & second.getSign() == false) {
             if ((isGreater(first, second)) || (isEqual(first, second))) {
-                result = subtract1(first, second, false);
+                result = subtraction1(first, second, false);
             } else {
-                result = subtract1(second, first, true);
+                result = subtraction1(second, first, true);
             }
         } else if (first.getSign() == false & second.getSign() == true) {
-            result = add1(first, second, false);
+            result = addition1(first, second, false);
         } else if (first.getSign() == true & second.getSign() == false) {
-            result = add1(first, second, true);
+            result = addition1(first, second, true);
         } else {
             //second - first
             if ((isGreater(second, first)) || (isEqual(second, first))) {
-                result = subtract1(second, first, false);
+                result = subtraction1(second, first, false);
             } else {
-                result = subtract1(first, second, true);
+                result = subtraction1(first, second, true);
             }
 
         }
@@ -220,7 +217,7 @@ public class operations {
         return result;
     }
 
-    public static bigNumber subtract1(bigNumber first, bigNumber second, boolean sign) {
+    public static bigNumber subtraction1 (bigNumber first, bigNumber second, boolean sign) {
         // I consider that always first is bigger than
         boolean borrow = false;
         node firstNumber = first.getLastNode();
@@ -253,8 +250,6 @@ public class operations {
             } else {
                 D2 = secondNumber.getData();
             }
-
-
             if (borrow) {
                 if (D1 != 0) {
                     borrow = false;
@@ -263,7 +258,6 @@ public class operations {
                     D1 = 9;
                 }
             }
-
             if (D1 >= D2) {
                 value = D1 - D2;
             } else {
@@ -275,7 +269,6 @@ public class operations {
             newNode.setNext(tempNode);
             tempNode = null;
             tempNode = newNode;
-
         }
         bigNumber number = new bigNumber(subtractLastNode);
         String removedLeftZero = number.toString();
