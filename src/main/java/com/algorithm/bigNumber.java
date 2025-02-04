@@ -1,3 +1,5 @@
+package com.algorithm;
+
 public class bigNumber {
     node lastNode = null;
     boolean sign = false;
@@ -54,7 +56,7 @@ public class bigNumber {
             temp = null;
             temp = n;
         }
-        //bigNumber bigNumber = new bigNumber(lastNode);
+        //com.algorithm.bigNumber com.algorithm.bigNumber = new com.algorithm.bigNumber(lastNode);
         return lastNode;
     }
 

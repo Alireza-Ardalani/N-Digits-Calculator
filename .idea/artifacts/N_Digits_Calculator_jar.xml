@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="N-Digits-Calculator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/N_Digits_Calculator_jar</output-path>
+    <root id="archive" name="N-Digits-Calculator.jar">
+      <element id="module-output" name="N-Digits-Calculator.main" />
+    </root>
+  </artifact>
+</component>

@@ -1,3 +1,5 @@
+package com.algorithm;
+
 public class operations {
 
     public static Boolean isEqual(bigNumber first, bigNumber second) {

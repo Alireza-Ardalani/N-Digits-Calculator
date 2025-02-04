@@ -1,3 +1,5 @@
+package com.algorithm;
+
 /**
  * Hi!
  * This is Alireza Ardalani!
@@ -14,9 +16,9 @@
 public class Main {
 
     public static void main(String[] inputArgs) {
-        String first = "100";
-        String second = "-100";
-        String operation = "*";
+        String first = inputArgs[0];
+        String second = inputArgs[2];
+        String operation = inputArgs[1];
 
         String regexNumber = "^[+-]?\\d+$";
         String regexOperation = "^[+-]?\\d+$";

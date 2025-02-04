@@ -1,3 +1,5 @@
+package com.algorithm;
+
 public class node {
     node next = null;
     node prev = null;
