@@ -13,10 +13,9 @@ This project represents large numbers using a **doubly linked list**, enabling *
 
 For example, our calculator can handle:  
 
-```sh
 922337203685477580712345 + 9221020560337203685477580712345  
 = 9221021482674407370955161424690
-```sh
+
 
 ## 📌 Features
 ✔️ Supports addition (+), subtraction (-), multiplication (*), division (/), and modulus (%)
