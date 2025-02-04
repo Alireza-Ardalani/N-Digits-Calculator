@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'org.example'
+group = 'com.algorithm'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -13,4 +13,16 @@ dependencies {
 }
 
 test {
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.algorithm.Main'
+    }
+    archiveBaseName.set(project.name + '-all')
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+
+    // Handling duplicate entries
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }

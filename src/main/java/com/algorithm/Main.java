@@ -15,10 +15,15 @@ package com.algorithm;
  **/
 public class Main {
 
-    public static void main(String[] inputArgs) {
-        String first = inputArgs[0];
-        String second = inputArgs[2];
-        String operation = inputArgs[1];
+    public static void main(String[] args) {
+
+//        String first = args[0];
+//        String second = args[2];
+//        String operation = args[1];
+
+        String first = "922337203685477580712345";
+        String second = "9221020560337203685477580712345";
+        String operation = "+";
 
         String regexNumber = "^[+-]?\\d+$";
         String regexOperation = "^[+-]?\\d+$";
@@ -63,4 +68,6 @@ public class Main {
         System.out.println(" Result =-=-=->> " + result);
     }
 
+    //System.out.println(Long.MAX_VALUE);
+    //System.out.println(Integer.MAX_VALUE);
 }
