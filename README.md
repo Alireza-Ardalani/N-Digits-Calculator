@@ -39,5 +39,5 @@ java -jar N-Digits-Calculator-all-1.0-SNAPSHOT.jar 40 / 30
 java -jar N-Digits-Calculator-all-1.0-SNAPSHOT.jar 40 % 30 
 
 ## 📖 Background
-This project originally started in 2015 as part of my Bachelor’s Data Structures course. \
+This project originally started in 2015 as part of my Undergrad Data Structures course. \
 I encourage computer science students to implement similar projects as a great hands-on data structure exercise.
